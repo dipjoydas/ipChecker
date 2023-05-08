@@ -88,7 +88,20 @@
 //   }
 // })();
 
+const express = require("express")
 var ip = require('ip');
+const app = express()
+app.get('/',(req,res)=>{
+    console.log(ip.address())
+    res.send(ip.address())
 
-ip.address()
-console.log(ip.address())
+})
+
+ const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log("Server running on port number" + PORT);
+})
+
+// ip.address()
+// console.log(ip.address())
